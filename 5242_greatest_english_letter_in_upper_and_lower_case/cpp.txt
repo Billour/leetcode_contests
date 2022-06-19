@@ -1,0 +1,32 @@
+class Solution {
+public:
+    string greatestLetter(string s) {
+        string sR = "";
+        if(s.length() >1000 || s.length() < 1)
+            return sR;
+                
+        int iCam = 0;//ASCII 32
+        int iCC = 0;
+        
+        int iCP = 0;
+        int iPP = 0;
+        for(int i =0 ; i < s.length() ; i++)
+        {
+            iCam = s[i];
+            for(int j= 1; j < s.length();j++)
+            {
+                iCC =s[j];
+                if(abs(iCam - iCC) == 32)
+                {
+                    iCP = iCam;
+                    iPP = iCC;
+                    break;
+                }
+            }
+            
+        }
+        iCam = iCP < iPP? iCP:iPP;
+        string ss(1,char(iCam));
+        return ss;
+    }
+};
